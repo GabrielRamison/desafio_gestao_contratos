@@ -1,0 +1,142 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 15/07/2024 às 05:40
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `contracts_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `contracts`
+--
+
+CREATE TABLE `contracts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `file_path` varchar(255) DEFAULT NULL,
+  `signed_date` date DEFAULT NULL,
+  `valid_until` date DEFAULT NULL,
+  `parties_involved` varchar(255) DEFAULT NULL,
+  `summary` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `preview` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `contracts`
+--
+
+INSERT INTO `contracts` (`id`, `name`, `file_path`, `signed_date`, `valid_until`, `parties_involved`, `summary`, `created_at`, `updated_at`, `preview`) VALUES
+(16, 'Gabriel Ramison', 'uploads\\1721014793793_Projeto_Gabriel.pdf', '2024-07-14', '2024-07-16', 'Parte A, PArte B', 'teste 2', '2024-07-14 23:41:37', '2024-07-14 23:41:37', '\n\nBuonaVinoteca:Aplicativodevinhoseeventos\nGabrielRamison\n30/06/2024\nInovaçãoDigitalnoTurismo:DesafioseOportunidadesnaDesenvolvimentoe\nImplementaçãoeAplicaçõesparaMelhoraraExperiênciadoTurista\nQuaissã...'),
+(17, 'Teste 3', 'uploads\\1721000527993_Projeto_Gabriel.pdf', '2024-07-14', '2024-07-16', 'Parte A, PArte B', 'teststwds', '2024-07-14 23:42:08', '2024-07-14 23:42:08', NULL),
+(18, 'teste 5', 'uploads\\1721002434749_Projeto_Gabriel.pdf', '2024-07-14', '2024-07-16', 'Parte A, PArte B', 'teste', '2024-07-15 00:13:54', '2024-07-15 00:13:54', NULL),
+(19, 'Teste 53', 'uploads\\1721007137203_Projeto_Gabriel.pdf', '2024-07-14', '2024-07-17', 'Parte A, PArte B', 'qweqweqeq', '2024-07-15 01:32:17', '2024-07-15 01:32:17', NULL),
+(20, 'teste 54 ', 'uploads\\1721008399401_Projeto_Gabriel.pdf', '2024-07-14', '2024-07-17', 'Parte A, PArte B', 'test', '2024-07-15 01:53:19', '2024-07-15 01:53:19', NULL),
+(21, 'Teste 55', 'uploads\\1721009529103_Projeto_Gabriel.pdf', '2024-07-14', '2024-07-16', 'Front and back', 'daasda', '2024-07-15 02:12:09', '2024-07-15 02:12:09', NULL),
+(22, 'Test55', 'uploads\\1721010473147_Projeto_Gabriel.pdf', '2024-07-14', '2024-07-17', 'Parte A, PArte B', 'sdASDASD', '2024-07-15 02:27:53', '2024-07-15 02:27:53', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `knex_migrations`
+--
+
+CREATE TABLE `knex_migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `batch` int(11) DEFAULT NULL,
+  `migration_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `knex_migrations`
+--
+
+INSERT INTO `knex_migrations` (`id`, `name`, `batch`, `migration_time`) VALUES
+(1, 'create_contracts_table.js', 1, '2024-07-08 23:48:48'),
+(2, 'add_preview_to_contracts.js', 2, '2024-07-15 03:05:19');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `knex_migrations_lock`
+--
+
+CREATE TABLE `knex_migrations_lock` (
+  `index` int(10) UNSIGNED NOT NULL,
+  `is_locked` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `knex_migrations_lock`
+--
+
+INSERT INTO `knex_migrations_lock` (`index`, `is_locked`) VALUES
+(1, 0);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `contracts`
+--
+ALTER TABLE `contracts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `knex_migrations`
+--
+ALTER TABLE `knex_migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `knex_migrations_lock`
+--
+ALTER TABLE `knex_migrations_lock`
+  ADD PRIMARY KEY (`index`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `contracts`
+--
+ALTER TABLE `contracts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de tabela `knex_migrations`
+--
+ALTER TABLE `knex_migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `knex_migrations_lock`
+--
+ALTER TABLE `knex_migrations_lock`
+  MODIFY `index` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
